@@ -1,0 +1,1 @@
+0 */6 * * * /nas/rhome/ashmall/.conda/envs/py3/bin/python /nas/rhome/ashmall/planetUpdater/updateplanet.py >> /nas/rhome/ashmall/planetUpdater/`date +\%Y\%m\%d\%H\%M\%S`-update.log 2>&1
