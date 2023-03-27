@@ -1,5 +1,8 @@
 config.pkl
 venv
 configPickle_.py
+**/__pycache__
 .idea
 notes.txt
+data.json
+*.log

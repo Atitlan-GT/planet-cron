@@ -3,11 +3,19 @@ import time
 import json
 import ast
 import datetime
+import json
 from shapely.geometry import Polygon
 from Planet_py import *
 
-ajax_url = "URL_TO_YOUR_DEPLOY_OF_WEBMAP_APPS/ajax.php"
-planet_key = "YOUR_PLANET_KEY"
+
+f = open('data.json', )
+
+# returns JSON object as
+# a dictionary
+data = json.load(f)
+
+ajax_url = data["WEBMAP_APPS_URL"]
+planet_key = data["PLANET_KEY"]
 # go get last date from db
 r = requests.post(ajax_url, data={'service': 'getLatestPlanet'})
 print(r.status_code, r.reason)
@@ -30,14 +38,14 @@ if past < present.date():
         layer_count = 2  # Include the n best layers
         start = str(past)
         end = str(past)  # None #'2019-01-30'  # Exclusive
-        item_types = ['PSScene3Band', 'PSScene4Band']
+        item_types = ['PSScene']
         geometry = Polygon([[-91.2971270940011, 14.738967391807186],
           [-91.2971270940011, 14.608774531644963],
           [-91.1048663518136, 14.608774531644963],
           [-91.1048663518136, 14.738967391807186]])
         buffer = 0.5
         addsimilar = False
-        myList = getMapID(api_key, geometry, start, end, layer_count, item_types, buffer, addsimilar)
+        myList = get_planet_map_id(api_key, geometry, start, end, layer_count, item_types, buffer, addsimilar)
         # here is where i would get info to add to db
         if len(myList) > 0 :
             theimage = myList[0]

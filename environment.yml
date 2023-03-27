@@ -1,0 +1,13 @@
+name: planet_cron
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - shapely
+  - requests
+  - python-dateutil
+  - pip
+  - pip:
+      - shapely-geojson
+prefix: C:\Users\washmall\Anaconda3\envs\planet_cron
