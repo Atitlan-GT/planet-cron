@@ -1,3 +1,5 @@
+import os
+
 import requests
 import time
 import json
@@ -8,7 +10,8 @@ from shapely.geometry import Polygon
 from Planet_py import *
 
 
-f = open('data.json', )
+os.path.dirname(__file__)
+f = open(os.path.join(os.path.dirname(__file__),'data.json', ))
 
 # returns JSON object as
 # a dictionary
